@@ -29,6 +29,7 @@ const tempSparkData = [
 export default function Home() {
   return (
     <>
+      {/* TODO: Move it to a separate component  */}
       <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {tempSparkData.map((spark) => (
           <Card
