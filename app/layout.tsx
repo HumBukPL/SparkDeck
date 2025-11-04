@@ -14,7 +14,12 @@ export default function RootLayout({
     // by the Next.js team for dealing with such scenarios.
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
           <Header />
           <PageBody>{children}</PageBody>
         </ThemeProvider>
