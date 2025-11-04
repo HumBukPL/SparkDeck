@@ -2,6 +2,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
 import Header from '@/components/Header'
 import PageBody from '@/components/PageBody'
+import AddSparkButton from '@/components/AddSparkButton'
 
 export default function RootLayout({
   children,
@@ -14,13 +15,9 @@ export default function RootLayout({
     // by the Next.js team for dealing with such scenarios.
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
           <Header />
+          <AddSparkButton />
           <PageBody>{children}</PageBody>
         </ThemeProvider>
       </body>
