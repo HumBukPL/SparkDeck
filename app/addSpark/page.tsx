@@ -1,3 +1,5 @@
+import AddSparkForm from '@/components/AddSparkForm'
+
 export default function AddSpark() {
-  return <div>add new spark </div>
+  return <AddSparkForm />
 }
