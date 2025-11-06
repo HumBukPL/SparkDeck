@@ -21,7 +21,7 @@ export default function AddSparkButton() {
 
   return (
     <Button
-      className="fixed right-8 bottom-8 rounded-full"
+      className="fixed right-8 bottom-8 rounded-full transition-transform duration-150 hover:scale-110"
       aria-label="Add"
       size="addIcon"
       onClick={handleButtonClick}
