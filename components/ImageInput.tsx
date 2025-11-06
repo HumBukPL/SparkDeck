@@ -41,7 +41,7 @@ export function ImageInput({ onChange }: ImageInputProps) {
       {image ? (
         <div className="flex justify-center">
           <div className="relative">
-            {/* The img component is totally fien here, because the image is user-uploaded */}
+            {/* The img component is totally fine here, because the image is user-uploaded */}
             {/*  eslint-disable-next-line @next/next/no-img-element */}
             <img src={image} alt="Selected" className="max-h-52 object-cover" />
             <Button
