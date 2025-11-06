@@ -19,7 +19,7 @@ export default function Card({ title, featuredWords, image }: CardProps) {
       style={{ backgroundImage }}
     >
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/75 to-transparent" />
-      <div className="relative z-10">
+      <div className="z-10">
         <h4 className="text-md line-clamp-2 font-semibold text-white drop-shadow-md">{title}</h4>
         <div className="mt-1 flex flex-row gap-1">
           {featuredWords.map((word) => (

@@ -1,18 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { IconX } from '@tabler/icons-react'
 
 type ImageInputProps = {
+  value: string | undefined
   onChange: (value: string) => void
 }
 
 // ImageInput for uploading an image file (jpeg, png, webp) max size 10MB
 // component allows user to clear the selected image with an "X" button
-export function ImageInput({ onChange }: ImageInputProps) {
-  const [image, setImage] = useState<string | null>(null)
+export function ImageInput({ value, onChange }: ImageInputProps) {
+  const [image, setImage] = useState<string | undefined>(value)
+
+  useEffect(() => {
+    setImage(value)
+  }, [value])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -32,7 +37,7 @@ export function ImageInput({ onChange }: ImageInputProps) {
   }
 
   const clearImage = () => {
-    setImage(null)
+    setImage(undefined)
     onChange('')
   }
 

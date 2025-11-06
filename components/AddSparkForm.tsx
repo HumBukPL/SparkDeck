@@ -39,6 +39,10 @@ export default function AddSparkForm() {
     addSparkForm.reset()
   }
 
+  const handleClear = () => {
+    addSparkForm.reset()
+  }
+
   return (
     <div className="mx-auto w-full max-w-md md:max-w-lg">
       <Form {...addSparkForm}>
@@ -79,7 +83,7 @@ export default function AddSparkForm() {
               <FormItem className="mt-6">
                 <FormLabel>Picture of your Spark</FormLabel>
                 <FormControl>
-                  <ImageInput onChange={field.onChange} />
+                  <ImageInput onChange={field.onChange} value={field.value} />
                 </FormControl>
                 <FormDescription>Provide an image for your Spark (optional).</FormDescription>
                 <FormMessage />
@@ -87,7 +91,13 @@ export default function AddSparkForm() {
             )}
           />
           <div className="my-8 flex justify-end gap-3">
-            <Button variant="outline">Clear</Button>
+            <Button
+              variant="outline"
+              onClick={handleClear}
+              disabled={addSparkForm.formState.isSubmitting || !addSparkForm.formState.isDirty}
+            >
+              Clear
+            </Button>
             <Button disabled={!addSparkForm.formState.isValid} type="submit">
               Create
             </Button>
