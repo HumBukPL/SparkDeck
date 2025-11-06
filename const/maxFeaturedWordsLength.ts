@@ -1,0 +1,1 @@
+export const MAX_FEATURED_WORDS_LENGTH = 10
