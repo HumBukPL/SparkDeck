@@ -3,7 +3,7 @@
 import { appName } from '@/const/appName'
 import { useRouter } from 'next/navigation'
 
-export default function Header() {
+export function Header() {
   const history = useRouter()
 
   const handleNameClick = () => {

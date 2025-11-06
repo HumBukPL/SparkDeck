@@ -9,7 +9,7 @@ type CardProps = {
   image?: string
 }
 
-export default function Card({ title, featuredWords, image }: CardProps) {
+export function Card({ title, featuredWords, image }: CardProps) {
   const shouldShowImage = Boolean(image)
   const backgroundImage = shouldShowImage ? `url(${image})` : `url(${fallbackImageUrl})`
 

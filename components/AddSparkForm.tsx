@@ -20,7 +20,7 @@ import { Button } from './ui/button'
 import { saveSparkToLocal } from '@/utils/addSparkUtils'
 import { useRouter } from 'next/navigation'
 
-export default function AddSparkForm() {
+export function AddSparkForm() {
   const history = useRouter()
   const addSparkForm = useForm<AddSparkFormSchema>({
     resolver: zodResolver(addSparkFormSchema),

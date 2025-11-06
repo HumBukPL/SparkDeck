@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 import { IconPlus } from '@tabler/icons-react'
 import { useRouter, usePathname } from 'next/navigation'
 
-export default function AddSparkButton() {
+export function AddSparkButton() {
   const history = useRouter()
   const pathname = usePathname()
 

@@ -1,6 +1,6 @@
 'use client'
 
-import Card from '@/components/Card'
+import { Card } from '@/components/Card'
 import { Spark } from '@/types/spark'
 import { getSparksFromLocal } from '@/utils/addSparkUtils'
 import { useEffect, useState } from 'react'
