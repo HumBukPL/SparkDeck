@@ -17,7 +17,7 @@ import { Input } from './ui/input'
 import { TagsInput } from './TagsInput'
 import { ImageInput } from './ImageInput'
 import { Button } from './ui/button'
-import { saveSparkToLocal } from '@/utils/addSparkUtils'
+import { saveSparkToLocal } from '@/utils/sparkUtils'
 import { useRouter } from 'next/navigation'
 
 export function AddSparkForm() {

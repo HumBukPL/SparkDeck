@@ -2,7 +2,7 @@
 
 import { Card } from '@/components/Card'
 import { Spark } from '@/types/spark'
-import { getSparksFromLocal } from '@/utils/addSparkUtils'
+import { getSparksFromLocal } from '@/utils/sparkUtils'
 import { useEffect, useState } from 'react'
 
 export default function SparkGrid() {
@@ -19,6 +19,7 @@ export default function SparkGrid() {
     <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {sparks.map((spark) => (
         <Card
+          id={spark.id}
           key={spark.title}
           title={spark.title}
           featuredWords={spark.featuredWords}
