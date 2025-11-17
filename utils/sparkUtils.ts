@@ -2,10 +2,16 @@
 
 import { Spark } from '@/types/spark'
 
-// For now save image as a data URL string
-export function saveSparkToLocal(data: Spark) {
+// TYPES ONLY FOR FUNCTIONS BELOW
+type saveSparkToLocalType = {
+  title: string
+  featuredWords: string[]
+  image?: string
+}
+
+export function saveSparkToLocal(data: saveSparkToLocalType) {
   const existingSparks = JSON.parse(localStorage.getItem('sparks') || '[]')
-  existingSparks.push({...data, id: Date.now().toString()})
+  existingSparks.push({ ...data, id: Date.now().toString() })
   localStorage.setItem('sparks', JSON.stringify(existingSparks))
 }
 
@@ -20,4 +26,10 @@ export function deleteSparkFromLocal(id: string) {
   localStorage.setItem('sparks', JSON.stringify(updatedSparks))
 }
 
-
+export function updateSparkInLocal(updatedSpark: Spark) {
+  const existingSparks = JSON.parse(localStorage.getItem('sparks') || '[]')
+  const updatedSparks = existingSparks.map((spark: Spark) =>
+    spark.id === updatedSpark.id ? updatedSpark : spark
+  )
+  localStorage.setItem('sparks', JSON.stringify(updatedSparks))
+}

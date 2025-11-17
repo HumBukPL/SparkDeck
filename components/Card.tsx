@@ -1,6 +1,7 @@
 import { Badge } from './ui/badge'
 import { fallbackImageUrl } from '@/const/fallbackImageUrl'
 import { CardMenu } from './CardMenu'
+import { Spark } from '@/types/spark'
 
 type CardProps = {
   id: string
@@ -8,9 +9,19 @@ type CardProps = {
   featuredWords: string[]
   image?: string
   refetch: () => void
+  setEditModalOpen: (open: boolean) => void
+  setEditingSpark: (spark: Spark) => void
 }
 
-export function Card({ title, featuredWords, image, id, refetch }: CardProps) {
+export function Card({
+  title,
+  featuredWords,
+  image,
+  id,
+  refetch,
+  setEditModalOpen,
+  setEditingSpark,
+}: CardProps) {
   const shouldShowImage = Boolean(image)
   const backgroundImage = shouldShowImage ? `url(${image})` : `url(${fallbackImageUrl})`
 
@@ -22,7 +33,15 @@ export function Card({ title, featuredWords, image, id, refetch }: CardProps) {
       style={{ backgroundImage }}
     >
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/75 to-transparent">
-        <CardMenu id={id} refetch={refetch} />
+        <CardMenu
+          id={id}
+          refetch={refetch}
+          title={title}
+          image={image}
+          featuredWords={featuredWords}
+          setEditModalOpen={setEditModalOpen}
+          setEditingSpark={setEditingSpark}
+        />
       </div>
       <div className="z-10">
         <h4 className="text-md line-clamp-2 font-semibold text-white drop-shadow-md">{title}</h4>
