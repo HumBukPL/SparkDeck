@@ -6,11 +6,17 @@ import { IconDots, IconEdit, IconTrash, IconX } from '@tabler/icons-react'
 import { cn } from '@/lib/utils'
 import { deleteSparkFromLocal } from '@/utils/sparkUtils'
 
-export function CardMenu({id}: {id: string}) {
+type CardMenuProps = {
+  id: string
+  refetch: () => void
+}
+
+export function CardMenu({ id, refetch }: CardMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleDelete=() => {
+  const handleDelete = () => {
     deleteSparkFromLocal(id)
+    refetch()
   }
 
   //TODO: implement functionality for edit and delete buttons
@@ -28,7 +34,7 @@ export function CardMenu({id}: {id: string}) {
           size="icon"
           className="cursor-pointer rounded-full border-none bg-black/20 p-0.5 text-white transition-transform hover:scale-110 hover:bg-black/40"
         >
-          <IconDots className="h-6! w-6! "  />
+          <IconDots className="h-6! w-6!" />
         </Button>
       ) : (
         <div className="flex w-full items-center justify-around bg-black/40">

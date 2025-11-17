@@ -7,17 +7,12 @@ import { useEffect, useState } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
 export default function SparkGrid() {
-  const [sparks] = useLocalStorage<Array<Spark>>('sparks', [])
+  const [sparks, setSparks] = useLocalStorage<Array<Spark>>('sparks', [])
 
-
-  // const [sparks, setSparks] = useState<Array<Spark>>([])
-  // useEffect(() => {
-  //   const featchSparks = async () => {
-  //     const storedSparks = getSparksFromLocal()
-  //     setSparks(storedSparks)
-  //   }
-  //   featchSparks()
-  // }, [])
+  const updateSparks = () => {
+    const storedSparks = getSparksFromLocal()
+    setSparks(storedSparks)
+  }
 
   return (
     <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -28,6 +23,7 @@ export default function SparkGrid() {
           title={spark.title}
           featuredWords={spark.featuredWords}
           image={spark.image}
+          refetch={updateSparks}
         />
       ))}
     </div>

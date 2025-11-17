@@ -7,9 +7,10 @@ type CardProps = {
   title: string
   featuredWords: string[]
   image?: string
+  refetch: () => void
 }
 
-export function Card({ title, featuredWords, image, id }: CardProps) {
+export function Card({ title, featuredWords, image, id, refetch }: CardProps) {
   const shouldShowImage = Boolean(image)
   const backgroundImage = shouldShowImage ? `url(${image})` : `url(${fallbackImageUrl})`
 
@@ -21,7 +22,7 @@ export function Card({ title, featuredWords, image, id }: CardProps) {
       style={{ backgroundImage }}
     >
       <div className="absolute inset-0 bg-linear-to-t from-black via-black/75 to-transparent">
-        <CardMenu id={id} />
+        <CardMenu id={id} refetch={refetch} />
       </div>
       <div className="z-10">
         <h4 className="text-md line-clamp-2 font-semibold text-white drop-shadow-md">{title}</h4>
